@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Category Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Category Level</th>
+                <th>Category Subject</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <!-- <td>{{ category.catagory }}</td> -->
+                <td><a href="/show_catagory/{{ category.catagory }}">{{ category.catagory }}</a></td>
+                <td><a href="/show_catagory/{{ category.catagoryLavel }}">{{ category.catagoryLavel }}</a></td>
+                <td><a href="/{{ category.id }}">{{ category.catagorySubject }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            background-color: rgb(31, 58, 82);
+            height: 100px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        li {
+            color: aliceblue;
+            /* background-color: blue; */
+            margin: 0px 5px;
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: capitalize;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        li:hover {
+            background-color: black;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .top-header {
+            height: 50px;
+            background-color: black;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            ul {
+                flex-direction: column;
+                height: auto;
+                align-items: center;
+                justify-content: center;
+            }
+
+            li {
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-header">
+        <h1>Admin Panel</h1>
+    </div>
+    <div class="admin_header">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('create_catagory') }}">Catagory</a></li>
+            <li><a href="{{ url_for('notice') }}">Notice</a></li>
+            <li><a href="{{ url_for('booksUpload') }}">Books</a></li>
+            <li><a href="{{ url_for('studentlist') }}">Students</a></li>
+            <li><a href="{{ url_for('upload_quiz_image') }}">Quiz Image</a></li>
+
+        </ul>
+    </div>
+</body>
+
+</html>

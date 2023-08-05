@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+
+            margin: 0%;
+
+        }
+
+        /*zzzzzzzzzzzzzz css slider zzzzzzzzzzzzzz */
+
+        .slider {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 300px;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .slider img {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            opacity: 0;
+
+            transition: opacity 1s ease-in-out;
+
+        }
+
+
+
+        .slider img:nth-child(1) {
+
+            animation: slide 15s ease-in-out infinite;
+
+        }
+
+
+
+        .slider img:nth-child(2) {
+
+            animation: slide 15s ease-in-out infinite 5s;
+
+        }
+
+
+
+        .slider img:nth-child(3) {
+
+            animation: slide 15s ease-in-out infinite 10s;
+
+        }
+
+
+
+        @keyframes slide {
+
+            0% {
+
+                opacity: 0;
+
+            }
+
+
+
+            6.66% {
+
+                opacity: 1;
+
+            }
+
+
+
+            33.33% {
+
+                opacity: 1;
+
+            }
+
+
+
+            40% {
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+
+        /*zzzzzzzzzzzzzz css slider zzzzzzzzzzzzzz */
+
+
+
+
+
+        .main-header img {
+
+            width: 100%;
+
+            height: 300px;
+
+
+
+        }
+
+
+
+
+
+
+
+        @media screen and (max-width: 768px) {
+
+            .main-footer {
+
+                display: flex;
+
+                flex-direction: column;
+
+                background-color: #5a5757;
+
+                height: 100%;
+
+            }
+
+            .footer1 {
+                width: 100%;
+                margin-left: 25px;
+            }
+
+            .main-header img {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+
+
+
+        .main-header {
+
+            position: relative;
+            z-index: -1;
+
+        }
+
+
+        .exam-room {
+            position: absolute;
+            top: 180px;
+            /* left: 500px; */
+            left: 43%;
+            background-color: #5a5757;
+            padding: 10px 15px;
+            border-radius: 40px;
+            z-index: 1;
+        }
+
+        .exam-room a {
+            color: white;
+        }
+
+        .exam-room:hover {
+            background-color: #ffffff;
+            /* color: rgb(30, 8, 8); */
+        }
+
+        .exam-room:hover a {
+            color: #555;
+        }
+
+        .socialMedia {
+
+            position: absolute;
+
+            top: 100px;
+
+            right: 0;
+
+            width: 200px;
+
+            /* height: 100px; */
+
+            border: 3px solid #73AD21;
+
+        }
+
+
+
+        /* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
+
+        .fa {
+
+            padding: 10px;
+
+            font-size: 10px;
+
+            width: 40px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            margin: 5px 2px;
+
+            border-radius: 50%;
+
+        }
+
+
+
+        .fa:hover {
+
+            opacity: 0.7;
+
+        }
+
+
+
+        .fa-facebook {
+
+            background: #3B5998;
+
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-youtube {
+            background: #bb0000;
+            color: white;
+
+        }
+
+
+        /* =========================top header */
+        ul {
+            display: flex;
+            list-style: none;
+            background-color: black;
+            color: white;
+            height: 50px;
+            align-items: center;
+
+        }
+
+        ul ul {
+            position: absolute;
+            right: 50px;
+            justify-content: flex-end;
+
+        }
+
+        ul ul li {
+            margin: 0px 10px;
+        }
+
+        .tlogo {
+            padding: 25px;
+            background-color: rgb(1, 153, 102);
+            margin: 0px;
+            font-size: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+
+        .zfooter {
+            display: flex;
+        }
+
+        .zfooter1 {
+            width: 100%;
+        }
+
+
+
+
+        @media screen and (max-width: 768px) {
+            .tlogo {
+                padding: 10px 10px;
+                font-size: 20px;
+            }
+
+            ul ul {
+                right: 20px;
+
+            }
+
+            .zfooter {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .exam-room {
+                left: 35%;
+            }
+        }
+
+
+
+        /* =========================product design */
+
+        .product-card {
+            max-width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #007bff;
+            margin-top: 10px;
+        }
+
+        .prduct-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <!DOCTYPE html>
+
+    <html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Title</title>
+
+        <link rel="stylesheet" href="index.css">
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    </head>
+
+
+
+    <body>
+        <ul style="margin-bottom: 0px;">
+            <li class="tlogo">varsity target</li>
+            <ul>
+                <!-- <li>Admin</li> -->
+                <!-- <li><i class="fa fa-user-plus" style="color:rgb(255, 255, 255)"></i>Login</li> -->
+                <li><a href="{{ url_for('login') }}" class="fa fa-user-plus" style="color:rgb(255, 255, 255)"></a>Login
+                </li>
+            </ul>
+        </ul>
+
+        <!-- zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz -->
+
+        <div class="main-header" style="background-color: #ff9393;">
+
+            <!-- <img src="hasan.jpg" alt=""> -->
+
+            <div class="slider">
+
+                <img src="{{ url_for('static',filename='media/image1.jpg') }}">
+                <img src="{{ url_for('static',filename='media/image2.jpg') }}">
+                <img src="{{ url_for('static',filename='media/image3.jpg') }}">
+
+                <!-- ... -->
+
+            </div>
+
+            <!-- zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz -->
+
+        </div>
+        <div class="socialMedia">
+
+            <a href="https://www.facebook.com/Admissionterget" class="fa fa-facebook"></a>
+
+            <a href="#" class="fa fa-twitter"></a>
+
+            <a href="https://www.youtube.com/@jydhasan5087" class="fa fa-youtube"></a>
+
+        </div>
+        <div class="exam-room">
+            <a href="{{ url_for('quiz_exam_hall_room') }}">Go to Exam Room</a>
+        </div>
+
+        <div class="livehead" style="background-color: #ff9090;">
+            <marquee behavior="" direction="">{{rows}}</marquee>
+        </div>
+
+        </div>
+
+        </div>
+        </div>
+
+
+        <div class="prduct-main">
+
+
+            <!-- <ul>
+                {% for file in files %}
+                <li>
+                    <h2>{{ file.title }}</h2>
+                    <p><strong>Description:</strong> {{ file.description }}</p>
+                    <p><strong>Price:</strong> ${{ file.price }}</p>
+                    <a href="{{ url_for('download_file', file_id=file.id) }}">Download Book</a>
+                    <img src="data:image/jpeg;base64,{{ file.image_base64 }}">
+                </li>
+                {% endfor %}
+            </ul> -->
+            <!-- {% for file in files %}
+            <div class="product-card">
+                <img class="product-image" src="data:image/jpeg;base64,{{ file.image_base64 }}" alt="Product Image">
+                <div class="product-title">{{ file.title }}</div>
+                <div class="product-price">${{ file.price }}</div>
+                <a href="{{ url_for('details_books', file_id=file.id) }}">Details</a>
+            </div>
+            {% endfor %}
+
+
+
+            
+            <div class="product-card">
+                <img class="product-image" src="{{ url_for('static',filename='media/book.jpg') }}" alt="Product Image">
+                <div class="product-title">Product Name</div>
+                <div class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <div class="product-price">$19.99</div>
+            </div> -->
+
+
+
+
+            {% if files %}
+            {% for file in files %}
+            <div class="product-card">
+                <img class="product-image" src="data:image/jpeg;base64,{{ file.image_base64 }}" alt="Product Image">
+                <div class="product-title">{{ file.title }}</div>
+                <div class="product-price">${{ file.price }}</div>
+                <a href="{{ url_for('details_books', file_id=file.id) }}">Details</a>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="product-card">
+                <img class="product-image" src="{{ url_for('static', filename='media/book.jpg') }}" alt="Product Image">
+                <div class="product-title">Product Name</div>
+                <div class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <div class="product-price">$19.99</div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{{ url_for('static', filename='media/book.jpg') }}" alt="Product Image">
+                <div class="product-title">Product Name</div>
+                <div class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <div class="product-price">$19.99</div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{{ url_for('static', filename='media/book.jpg') }}" alt="Product Image">
+                <div class="product-title">Product Name</div>
+                <div class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <div class="product-price">$19.99</div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{{ url_for('static', filename='media/book.jpg') }}" alt="Product Image">
+                <div class="product-title">Product Name</div>
+                <div class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <div class="product-price">$19.99</div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{{ url_for('static', filename='media/book.jpg') }}" alt="Product Image">
+                <div class="product-title">Product Name</div>
+                <div class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <div class="product-price">$19.99</div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{{ url_for('static', filename='media/book.jpg') }}" alt="Product Image">
+                <div class="product-title">Product Name</div>
+                <div class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <div class="product-price">$19.99</div>
+            </div>
+            {% endif %}
+
+
+
+
+
+
+        </div>
+
+
+
+        <div class="zfooter" style="background-color: #888;">
+            <div class="zfooter1" style="padding: 10px;">
+                <h1>Admin </h1>
+                <a href="{{ url_for('admin') }}">Admin</a>
+
+            </div>
+            <div class="zfooter1" style="padding: 10px;">
+                <h1>About us</h1>
+                <p style="text-align: justify;">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam perferendis autem commodi
+                    consectetur.
+                    At natus quidem nisi possimus corrupti aliquam alias tempore dicta tenetur veniam tempora, officiis,
+                    rem
+                    quos. Accusamus?
+                </p>
+            </div>
+            <div class="zfooter1" style="padding: 10px;">
+                <h1>Contact Us</h1>
+                <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
+                    doloribus qui ratione. Obcaecati,
+                    quo
+                    facere blanditiis est id architecto soluta veniam iusto accusamus harum modi quae et maiores
+                    consectetur
+                    possimus. </p>
+            </div>
+        </div>
+        <div class="zcopywrite" style="background-color: black; display: flex;justify-content: center;">
+            <p style="color:aliceblue;">&copy; 2023 .</p>
+            <p style="color:aliceblue">Designed by <a href="https://github.com/jydhasan">jydhasan</a></p>
+        </div>
+        </div>
+    </body>
+
+    </html>
+</body>
+
+</html>

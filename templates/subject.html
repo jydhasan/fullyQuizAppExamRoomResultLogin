@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        form {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: 1px solid #ccc;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <h1>Subject Details</h1>
+        {% if subject %}
+        <p><strong>ID:</strong> {{ subject.id }}</p>
+        <p><strong>Category:</strong> {{ subject.catagory }}</p>
+        <p><strong>Category Level:</strong> {{ subject.catagoryLavel }}</p>
+        <p><strong>Subject:</strong> {{ subject.catagorySubject }}</p>
+        {% else %}
+        <p>Subject not found.</p>
+        {% endif %}
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <h1 class="flashes">
+            {% for message in messages %}
+            <h2>{{ message }}</h2>
+            {% endfor %}
+        </h1>
+        {% endif %}
+        {% endwith %}
+
+
+        <!-- make a file form  -->
+        <form action="upload" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{ subject.id }}">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br>
+
+            <label for="minutes">Minutes:</label>
+            <input type="text" id="minutes" name="minutes" required><br>
+
+            <label for="file">Choose a file</label>
+            <input type="file" name="inputFile" id="file"><br>
+            <input type="submit" value="submit">
+        </form>
+
+
+
+        <h1>Subject: {{ subject.name }}</h1>
+        <h2>Questions:</h2>
+        {% for question in showQuestions %}
+        <p>FID: {{ question.fid }}</p>
+        <p>Title: {{ question.title }}</p>
+        <p>Minutes: {{ question.minutes }}</p>
+        <p>Tablename: <a href="/get_data/{{ question.tablename }}">{{ question.tablename }}</a></p>
+        <p>QStart: {{ question.qstart }}</p>
+        <p>QEnd: {{ question.qend }}</p>
+        <p>createad_date: {{ question.created_date }}</p>
+        <a href="result/{{question.resulttable}}">{{question.resulttable}}</a>
+        <!-- create a start button -->
+        <form action="start_quiz" method="post">
+            <input type="hidden" name="fid" value="{{ question.fid }}">
+            <input type="hidden" name="tablename" value="{{ question.tablename }}">
+            <input type="hidden" name="qstart" value="{{ question.qstart }}">
+            <input type="hidden" name="qend" value="{{ question.qend }}">
+            <input type="submit" value="Start">
+        </form>
+        <form action="end_quiz" method="post">
+            <input type="hidden" name="fid" value="{{ question.fid }}">
+            <input type="hidden" name="tablename" value="{{ question.tablename }}">
+            <input type="hidden" name="qstart" value="{{ question.qstart }}">
+            <input type="hidden" name="qend" value="{{ question.qend }}">
+            <input type="submit" value="End quiz">
+        </form>
+        <hr>
+        {% endfor %}
+
+
+    </body>
+</body>
+
+</html>

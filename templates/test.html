@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>{{rows}}</h1>
+    <h1>Time Countdown: <span id="timer"></span></h1>
+    <form id="myForm">
+        <!-- Your form elements here -->
+        <input type="submit" value="Submit Form">
+    </form>
+    <script>
+        // Function to start the countdown
+        function startCountdown(minutes) {
+            let seconds = minutes * 60;
+            const timerElement = document.getElementById('timer');
+
+            function tick() {
+                const minutesRemaining = Math.floor(seconds / 60);
+                const secondsRemaining = seconds % 60;
+
+                // Display the remaining time
+                timerElement.textContent = `${minutesRemaining.toString().padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}`;
+
+                if (seconds > 0) {
+                    seconds--;
+                    setTimeout(tick, 1000); // Call the function again after 1 second
+                } else {
+                    // Time's up, submit the form
+                    document.getElementById('myForm').submit();
+                }
+            }
+
+            // Start the countdown
+            tick();
+        }
+        var rowsData = {{ rows | tojson }};
+        // Start the countdown when the page is loaded
+        window.onload = function () {
+            startCountdown(rowsData); // 40 minutes countdown
+        };
+
+    </script>
+</body>
+
+</html>

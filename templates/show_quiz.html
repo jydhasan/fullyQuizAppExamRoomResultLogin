@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        h1,
+        h4 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        h3 {
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            margin-left: 40px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="image-header">
+        {% if files %}
+        {% for file in files %}
+        <div>
+            <!-- <h3>Image ID: {{ file.id }}</h3> -->
+            <img src="data:image/png;base64,{{ file.image_base64 }}" alt="Quiz Image">
+        </div>
+        {% endfor %}
+        {% else %}
+        <img src="{{ url_for('static',filename='media/image1.jpg') }}">
+        {% endif %}
+
+
+
+
+        <!-- {% for file in files %}
+    <div>
+        <h3>Image ID: {{ file.id }}</h3>
+        <img src="data:image/png;base64,{{ file.image_base64 }}" alt="Quiz Image">
+    </div>
+    {% endfor %} -->
+
+
+    </div>
+
+
+
+
+
+    <!-- <h1>{{rows}}</h1> -->
+    <h1>Time : <span id="timer"></span></h1>
+
+
+
+    <h1>
+        {{title}}
+    </h1>
+    <h4>
+        {{titleAc}}/{{titleLavel}}/{{titleSubject}}
+    </h4>
+
+
+    {% for quizNotice in quizNotice %}
+    <h4>
+        {{quizNotice[2]}}
+    </h4>
+    {% endfor %}
+
+
+
+    <!-- <h1>Simple Radio Button Quiz</h1> -->
+    <form id="myForm" action="quiz_ans" method="post">
+        {% for entry in data %}
+        <h3>Q {{entry[0]+ 1}}:{{ entry[1] }} ?</h3>
+        <label>
+            <input type="radio" name="{{entry[0]}}" value="{{ entry[2] }}"> {{ entry[2] }}
+        </label><br>
+        <label>
+            <input type="radio" name="{{entry[0]}}" value="{{ entry[3] }}"> {{ entry[3] }}
+        </label><br>
+        <label>
+            <input type="radio" name="{{entry[0]}}" value="{{ entry[4] }}"> {{ entry[4] }}
+        </label><br>
+        <label>
+            <input type="radio" name="{{entry[0]}}" value="{{ entry[5] }}"> {{ entry[5] }}
+        </label><br>
+        {% endfor %}
+        <input type="hidden" name="entry_id" value="{{entry_id}}">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+
+    <script>
+        // Function to start the countdown
+        function startCountdown(minutes) {
+            let seconds = minutes * 60;
+            const timerElement = document.getElementById('timer');
+
+            function tick() {
+                const minutesRemaining = Math.floor(seconds / 60);
+                const secondsRemaining = seconds % 60;
+
+                // Display the remaining time
+                timerElement.textContent = `${minutesRemaining.toString().padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}`;
+
+                if (seconds > 0) {
+                    seconds--;
+                    setTimeout(tick, 1000); // Call the function again after 1 second
+                } else {
+                    // Time's up, submit the form
+                    document.getElementById('myForm').submit();
+                }
+            }
+
+            // Start the countdown
+            tick();
+        }
+        var rowsData = {{ timerQ | tojson }};
+        // Start the countdown when the page is loaded
+        window.onload = function () {
+            startCountdown(rowsData); // 40 minutes countdown
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        No Exam Now
+    </h1>
+    {% for element in noexamnow %}
+    <h2>{{ element.noexamnow }}</h2>
+    <p>{{ element.details }}</p>
+    {% endfor %}
+
+
+    <!-- <form method="post" action="{{ url_for('no_exam_now') }}">
+        <label for="noexamnow">Title</label>
+        <input type="text" name="noexamnow" placeholder="Enter your Title" required>
+        <label for="details">Enter your Details</label>
+        <input type="text" name="details" placeholder="Enter your Dtails" required>
+        <input type="submit" value="submit">
+    </form> -->
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz Images</title>
+</head>
+
+<body>
+    <h1>Quiz Images</h1>
+    {% for file in files %}
+    <div>
+        <h3>Image ID: {{ file.id }}</h3>
+        <img src="data:image/png;base64,{{ file.image_base64 }}" alt="Quiz Image">
+    </div>
+    {% endfor %}
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .top {
+            height: 50px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0px auto;
+            background-color: aquamarine;
+            padding: 20px 15px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 4px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        a {
+            display: block;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(11, 11, 11);
+            text-transform: uppercase;
+            color: white;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(35, 101, 244);
+            cursor: pointer;
+        }
+
+        a {
+            background-color: black;
+            color: aliceblue;
+            width: 100%;
+            text-align: center;
+            padding: 3px;
+            text-transform: uppercase;
+            font-size: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        @media screen and (max-width: 600px) {
+            form {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+
+    </div>
+    <form method="POST" action="{{ url_for('login') }}">
+        <h2>Login Form</h2><br>
+        <label for="phone">Enter your phone number</label><br>
+        <input type="text" name="phone" placeholder="Enter your phone number" required><br>
+        <input type="submit" value="Login"></input>
+        <p style="text-align: center;">or</p>
+        <a href="{{url_for('login_register')}}"> Register</a>
+    </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h1 class="flashes">
+        {% for message in messages %}
+        <h2>{{ message }}</h2>
+        {% endfor %}
+    </h1>
+    {% endif %}
+    {% endwith %}
+
+</body>
+
+</html>
